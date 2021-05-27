@@ -5905,6 +5905,8 @@ function run() {
                 throw new Error('Workflow run was cancelled');
             if (conclusion === workflow_handler_1.WorkflowRunConclusion.TIMED_OUT)
                 throw new Error('Workflow run has failed due to timeout');
+            if (conclusion !== workflow_handler_1.WorkflowRunConclusion.SUCCESS)
+                throw new Error('Conclusion undefined');
         }
         catch (error) {
             core.setFailed(error.message);
